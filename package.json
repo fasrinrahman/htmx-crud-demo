@@ -1,25 +1,28 @@
 {
-  "name": "htmx-crud-demo",
+  "name": "htmx-task-manager",
   "version": "1.0.0",
-  "description": "",
+  "description": "A beautiful server-driven CRUD application built with HTMX and Express",
   "main": "server.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fasrinrahman/htmx-crud-demo.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/fasrinrahman/htmx-crud-demo/issues"
-  },
-  "homepage": "https://github.com/fasrinrahman/htmx-crud-demo#readme",
+
+  "keywords": [
+    "htmx",
+    "express",
+    "crud",
+    "server-driven-ui",
+    "javascript",
+    "node"
+  ],
+
+  "author": "Fasrin Rahman",
+
+  "license": "MIT",
+
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.1.0"
   }
 }
