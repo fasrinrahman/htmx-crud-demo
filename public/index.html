@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTMX CRUD Demo</title>
+
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+</head>
+
+<body>
+
+<h1>HTMX CRUD Demo</h1>
+
+<form
+    hx-post="/items"
+    hx-target="#items"
+    hx-swap="innerHTML">
+
+    <input
+        name="name"
+        placeholder="New Item"
+        required>
+
+    <button>Add</button>
+
+</form>
+
+<hr>
+
+<div
+    id="items"
+    hx-get="/items"
+    hx-trigger="load">
+
+</div>
+
+</body>
+</html>
