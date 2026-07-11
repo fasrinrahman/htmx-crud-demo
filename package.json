@@ -1,27 +1,22 @@
 {
   "name": "htmx-task-manager",
-  "version": "1.0.0",
-  "description": "A beautiful server-driven CRUD application built with HTMX and Express",
+  "version": "2.0.0",
+  "description": "A modern Task Manager built with Express.js and HTMX",
   "main": "server.js",
-
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node --watch server.js"
   },
-
   "keywords": [
     "htmx",
     "express",
-    "crud",
+    "node",
     "server-driven-ui",
-    "javascript",
-    "node"
+    "crud",
+    "task-manager"
   ],
-
-  "author": "Fasrin Rahman",
-
+  "author": "Mohamed Fasrin Rahman",
   "license": "MIT",
-
   "dependencies": {
     "express": "^5.1.0"
   }

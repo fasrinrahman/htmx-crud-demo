@@ -1,160 +1,60 @@
-/* =====================================================
+/* =====================================
    HTMX TASK MANAGER
-   Premium Production CSS
-   ===================================================== */
-
-
-/* =====================================================
-   1. DESIGN TOKENS
-   ===================================================== */
-
-:root {
-
-    --primary: #2563eb;
-    --secondary: #06b6d4;
-
-    --success: #16a34a;
-    --warning: #f59e0b;
-    --danger: #ef4444;
-
-
-    --text:
-        #111827;
-
-    --muted:
-        #64748b;
-
-
-    --background:
-        #eef2ff;
-
-
-    --card:
-        rgba(255,255,255,.75);
-
-
-    --border:
-        #e5e7eb;
-
-
-    --shadow:
-        0 20px 50px rgba(0,0,0,.10);
-
-
-    --radius-lg:
-        30px;
-
-
-    --radius-md:
-        20px;
-
-
-    --radius-sm:
-        14px;
-
-}
-
-
-
-/* =====================================================
-   2. RESET
-   ===================================================== */
+   Premium UI Styles
+===================================== */
 
 
 * {
-
-    box-sizing:border-box;
-
+    box-sizing: border-box;
 }
-
 
 
 body {
 
-
     margin:0;
-
-
-    font-family:
-    'Inter',
-    sans-serif;
-
-
-    color:
-    var(--text);
-
-
-    transition:
-    background .3s,
-    color .3s;
-
-
-}
-
-
-
-/* =====================================================
-   3. PAGE BACKGROUND
-   ===================================================== */
-
-
-.background {
-
 
     min-height:100vh;
 
-
-    padding:
-    40px 20px;
-
-
+    font-family:
+    'Inter',
+    system-ui,
+    sans-serif;
 
     background:
-
     linear-gradient(
         135deg,
         #eef2ff,
-        #ffffff,
-        #ecfeff
+        #f8fafc
     );
 
-
-
-}
-
-
-
-
-.container {
-
-
-    max-width:
-    900px;
-
-
-    margin:
-    auto;
-
+    color:#111827;
 
 }
 
 
 
+.app {
 
-/* =====================================================
-   4. HERO SECTION
-   ===================================================== */
+    width:min(1100px, 92%);
+
+    margin:auto;
+
+    padding:40px 0 60px;
+
+}
+
+
+
+/* =========================
+   HERO
+========================= */
 
 
 .hero {
 
-
     text-align:center;
 
-
-    margin-bottom:
-    40px;
-
+    padding:40px 20px;
 
 }
 
@@ -162,72 +62,51 @@ body {
 
 .logo {
 
+    width:80px;
 
-    width:
-    70px;
-
-
-    height:
-    70px;
-
+    height:80px;
 
     margin:auto;
 
-
     display:flex;
-
 
     align-items:center;
 
-
     justify-content:center;
 
+    border-radius:25px;
 
-    border-radius:
-    var(--radius-md);
 
+    font-size:40px;
 
 
     background:
-
     linear-gradient(
         135deg,
-        var(--primary),
-        var(--secondary)
+        #2563eb,
+        #7c3aed
     );
 
 
-
-    font-size:
-    35px;
-
-
+    color:white;
 
     box-shadow:
 
     0 20px 40px
-    rgba(37,99,235,.25);
-
+    rgba(37,99,235,.3);
 
 }
-
 
 
 
 .hero h1 {
 
 
-    font-size:
-    48px;
+    font-size:48px;
 
+    margin:25px 0 10px;
 
-    letter-spacing:
-    -2px;
-
-
-    margin:
-    20px 0 10px;
-
+    font-weight:800;
 
 }
 
@@ -236,201 +115,73 @@ body {
 .hero p {
 
 
-    font-size:
-    18px;
+    font-size:18px;
 
-
-    color:
-    var(--muted);
-
-
-    line-height:
-    1.6;
-
+    color:#64748b;
 
 }
 
 
 
-
-/* =====================================================
-   5. TECH TAGS
-   ===================================================== */
-
-
-.tech-stack {
+.tech-tags {
 
 
     display:flex;
 
-
     justify-content:center;
-
-
-    gap:
-    10px;
-
 
     flex-wrap:wrap;
 
+    gap:12px;
 
-    margin-top:
-    25px;
-
-
-}
-
-
-
-.tech-stack span {
-
-
-    background:
-    white;
-
-
-    padding:
-    8px 15px;
-
-
-    border-radius:
-    50px;
-
-
-
-    font-size:
-    14px;
-
-
-
-    box-shadow:
-
-    0 5px 15px
-    rgba(0,0,0,.08);
-
+    margin-top:25px;
 
 }
 
 
 
-/* =====================================================
-   6. MAIN GLASS CARD
-   ===================================================== */
+.tech-tags span {
 
 
-.card {
+    background:white;
 
+    padding:8px 18px;
 
-    background:
-    var(--card);
-
-
-    backdrop-filter:
-    blur(25px);
-
-
-    border:
-
-    1px solid
-    rgba(255,255,255,.5);
-
-
-
-    border-radius:
-
-    var(--radius-lg);
-
-
-
-    padding:
-    35px;
-
-
-
-    box-shadow:
-
-    var(--shadow);
-
-
-}
-
-
-
-/* =====================================================
-   7. BUTTON SYSTEM
-   ===================================================== */
-
-
-button {
-
-
-    border:none;
-
-
-    cursor:pointer;
-
+    border-radius:999px;
 
     font-weight:600;
 
+    box-shadow:
 
-    border-radius:
-    var(--radius-sm);
-
-
-    transition:.25s;
-
+    0 5px 20px
+    rgba(0,0,0,.08);
 
 }
 
 
 
-button:hover {
+/* =========================
+ CREATE FORM
+========================= */
 
 
-    transform:
-    translateY(-2px);
+.create-section {
 
 
-}
+    background:white;
 
+    padding:30px;
 
-
-/* Main button */
-
-
-.task-form button {
-
-
-    padding:
-    15px 25px;
-
-
-
-    color:white;
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
+    border-radius:30px;
 
 
     box-shadow:
 
-    0 10px 25px
-    rgba(37,99,235,.3);
-
+    0 20px 50px
+    rgba(0,0,0,.08);
 
 }
 
-
-
-/* =====================================================
-   8. FORM INPUTS
-   ===================================================== */
 
 
 .task-form {
@@ -438,328 +189,104 @@ button:hover {
 
     display:flex;
 
+    flex-direction:column;
 
-    gap:
-    15px;
-
+    gap:20px;
 
 }
 
 
 
-.task-form input,
+.input-group input,
 
 
-.search-box input,
+.input-row input,
 
 
-.edit-form input {
+.input-row select,
 
 
-    flex:1;
+.search-section input {
 
 
-    padding:
+    width:100%;
 
-    16px 20px;
+    padding:15px 18px;
 
-
-
-    border-radius:
-
-    var(--radius-sm);
-
-
+    border-radius:14px;
 
     border:
 
-    1px solid
-    var(--border);
+    1px solid #e5e7eb;
 
 
-
-    font-size:
-    16px;
+    font-size:15px;
 
 
     outline:none;
 
+}
+
+
+
+.input-row {
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    1fr 1fr;
+
+    gap:20px;
 
 }
 
 
 
-.task-form input:focus,
+label {
 
 
-.search-box input:focus,
+    display:block;
 
+    margin-bottom:8px;
 
-.edit-form input:focus {
+    font-size:14px;
 
+    font-weight:600;
 
-    border-color:
-
-    var(--primary);
-
-
-    box-shadow:
-
-    0 0 0 4px
-    rgba(37,99,235,.15);
-
-
-}
-
-/* =====================================================
-   9. SEARCH BOX
-   ===================================================== */
-
-
-.search-box {
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    gap:10px;
-
-
-    margin:
-    25px 0;
-
-
-    padding:
-    10px 15px;
-
-
-
-    background:
-    rgba(248,250,252,.9);
-
-
-
-    border-radius:
-    var(--radius-md);
-
-
+    color:#475569;
 
 }
 
 
 
-.search-box span {
+.add-btn {
 
 
-    font-size:
-    20px;
-
-
-}
-
-
-
-.search-box input {
-
+    padding:16px;
 
     border:none;
 
-
-    background:transparent;
-
-
-    padding:
-    12px;
-
-
-}
-
-
-
-.search-box input:focus {
-
-
-    box-shadow:none;
-
-
-}
-
-
-
-
-
-/* =====================================================
-   10. HTMX LOADING STATE
-   ===================================================== */
-
-
-.htmx-indicator {
-
-
-    display:none;
-
-
-    align-items:center;
-
-
-    justify-content:center;
-
-
-    gap:10px;
-
-
-    color:
-    var(--muted);
-
-
-    margin:
-    15px 0;
-
-
-}
-
-
-
-.htmx-request.htmx-indicator {
-
-
-    display:flex;
-
-
-}
-
-
-
-.loading-bar {
-
-
-    width:22px;
-
-
-    height:22px;
-
-
-    border-radius:50%;
-
-
-
-    border:
-
-    3px solid #dbeafe;
-
-
-
-    border-top-color:
-
-    var(--primary);
-
-
-
-    animation:
-
-    spin .8s linear infinite;
-
-
-}
-
-
-
-
-
-/* =====================================================
-   11. TASK HEADER
-   ===================================================== */
-
-
-.task-header {
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    justify-content:space-between;
-
-
-    margin-bottom:
-    25px;
-
-
-}
-
-
-
-.task-header h2 {
-
-
-    margin:0;
-
-
-    font-size:
-    24px;
-
-
-}
-
-
-
-.task-header p {
-
-
-    color:
-    var(--muted);
-
-
-}
-
-
-
-.count-badge {
-
-
-    width:
-    48px;
-
-
-    height:
-    48px;
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    justify-content:center;
-
-
-
-    border-radius:
-    50%;
-
+    border-radius:15px;
 
 
     background:
 
     linear-gradient(
         135deg,
-        var(--primary),
-        var(--secondary)
+        #2563eb,
+        #7c3aed
     );
-
 
 
     color:white;
 
+    font-size:16px;
 
     font-weight:700;
 
+    cursor:pointer;
 
 }
 
@@ -767,92 +294,167 @@ button:hover {
 
 
 
-/* =====================================================
-   12. TASK LIST
-   ===================================================== */
+.add-btn:hover {
 
 
-.tasks-list {
+    transform:
+
+    translateY(-2px);
+
+}
 
 
-    display:flex;
+
+/* =========================
+ SEARCH
+========================= */
 
 
-    flex-direction:column;
+.search-section {
 
 
-    gap:
-    15px;
+    margin:30px 0;
+
+}
+
+
+
+/* =========================
+ DASHBOARD
+========================= */
+
+
+.dashboard {
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:20px;
+
+    margin-bottom:30px;
 
 
 }
 
 
 
+.stat-card {
 
 
-/* =====================================================
-   13. TASK CARD
-   ===================================================== */
+    background:white;
 
 
-.task-card {
+    padding:25px;
+
+
+    border-radius:25px;
 
 
     display:flex;
+
+
+    gap:15px;
 
 
     align-items:center;
 
 
-    justify-content:space-between;
+    box-shadow:
 
+    0 10px 30px
+    rgba(0,0,0,.06);
 
-    gap:
-    20px;
-
-
-
-    padding:
-    20px;
+}
 
 
 
-    background:
+.stat-icon {
 
-    linear-gradient(
-        145deg,
-        #ffffff,
-        #f8fafc
-    );
 
+    font-size:32px;
+
+}
+
+
+
+.stat-card h3 {
+
+
+    margin:0;
+
+    font-size:30px;
+
+}
+
+
+
+.stat-card p {
+
+
+    margin:5px 0;
+
+    color:#64748b;
+
+}
+
+
+
+.danger-card {
 
 
     border:
 
-    1px solid
-    #eef2f7;
-
-
-
-    border-radius:
-
-    var(--radius-md);
-
-
-
-    transition:
-    .25s;
-
-
-
-    animation:
-
-    fade .3s ease;
-
+    1px solid #fecaca;
 
 }
 
+
+
+/* =========================
+ TASK CARD
+========================= */
+
+
+.task-list {
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.task-card {
+
+
+    background:white;
+
+
+    padding:25px;
+
+
+    border-radius:25px;
+
+
+    box-shadow:
+
+
+    0 15px 40px
+    rgba(0,0,0,.07);
+
+
+    transition:.3s;
+
+
+}
 
 
 
@@ -863,121 +465,139 @@ button:hover {
 
     translateY(-4px);
 
+}
 
-    box-shadow:
 
-    0 20px 40px
-    rgba(0,0,0,.08);
 
+.task-title {
+
+
+    margin:0;
+
+    font-size:22px;
 
 }
 
 
 
+.task-meta {
 
 
-.task-left {
+    color:#64748b;
 
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    gap:
-    15px;
-
+    margin-top:8px;
 
 }
 
 
 
-
-
-.task-icon {
-
-
-    width:
-    45px;
-
-
-    height:
-    45px;
-
-
-    border-radius:
-    50%;
-
+.task-badges {
 
 
     display:flex;
 
+    flex-wrap:wrap;
 
-    justify-content:center;
+    gap:10px;
 
+    margin-top:20px;
 
-    align-items:center;
-
-
-
-    background:
-
-    #dcfce7;
+}
 
 
 
-    color:
-
-    var(--success);
+.badge {
 
 
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:13px;
 
     font-weight:700;
 
+}
+
+
+
+.priority-high {
+
+
+    background:#fee2e2;
+
+    color:#dc2626;
 
 }
 
 
 
+.priority-medium {
 
 
-.task-card h3 {
+    background:#fef3c7;
 
-
-    margin:
-
-    0 0 5px;
-
-
-    font-size:
-    17px;
-
+    color:#d97706;
 
 }
 
 
 
-.task-card span {
+.priority-low {
 
 
-    color:
-    #94a3b8;
+    background:#dcfce7;
 
-
-    font-size:
-    13px;
-
+    color:#16a34a;
 
 }
 
 
 
+.badge-danger {
 
 
-/* =====================================================
-   14. TASK ACTION BUTTONS
-   ===================================================== */
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+
+
+.badge-warning {
+
+
+    background:#ffedd5;
+
+    color:#ea580c;
+
+}
+
+
+
+.badge-info {
+
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+}
+
+
+
+.badge-primary {
+
+
+    background:#ede9fe;
+
+    color:#7c3aed;
+
+}
+
+
+
 
 
 .task-actions {
@@ -985,505 +605,91 @@ button:hover {
 
     display:flex;
 
+    gap:12px;
 
-    gap:
-    10px;
-
-
-}
-
-
-
-.task-actions button {
-
-
-    padding:
-
-    10px 15px;
-
-
-    color:white;
-
+    margin-top:25px;
 
 }
 
 
 
-.edit-btn {
+.btn {
 
 
-    background:
+    padding:10px 16px;
 
-    var(--warning);
+    border:none;
 
+    border-radius:12px;
 
-}
+    cursor:pointer;
 
-
-
-.delete-btn {
-
-
-    background:
-
-    var(--danger);
-
+    font-weight:600;
 
 }
 
 
 
-.cancel-btn {
+.btn-edit {
 
 
-    background:
+    background:#dbeafe;
 
-    #64748b;
+}
 
+
+
+.btn-complete {
+
+
+    background:#dcfce7;
+
+}
+
+
+
+.btn-delete {
+
+
+    background:#fee2e2;
 
 }
 
 
 
 
-
-/* =====================================================
-   15. EDIT FORM
-   ===================================================== */
+.completed .task-title {
 
 
-.edit-form {
+    text-decoration:
 
+    line-through;
 
-    display:flex;
-
-
-    width:100%;
-
-
-    gap:
-    10px;
-
+    opacity:.6;
 
 }
 
 
 
-.edit-form input {
+/* =========================
+ HTMX FLOW
+========================= */
 
 
-    flex:1;
+.htmx-info {
 
 
-    padding:
-    12px;
+    margin-top:50px;
 
+    background:white;
 
-}
+    padding:30px;
 
-
-
-
-
-/* =====================================================
-   16. EMPTY STATE
-   ===================================================== */
-
-
-.empty-state {
-
+    border-radius:30px;
 
     text-align:center;
 
-
-    padding:
-    60px 30px;
-
-
-
-    border-radius:
-    var(--radius-lg);
-
-
-
-    background:
-
-    rgba(255,255,255,.65);
-
-
-
-    border:
-
-    1px dashed
-    var(--primary);
-
-
-
-    backdrop-filter:
-
-    blur(20px);
-
-
 }
-
-
-
-
-
-.empty-icon {
-
-
-    font-size:
-    60px;
-
-
-    margin-bottom:
-    20px;
-
-
-}
-
-
-
-.empty-state h2 {
-
-
-    margin-bottom:
-    10px;
-
-
-}
-
-
-
-.empty-state p {
-
-
-    color:
-    var(--muted);
-
-
-}
-
-
-
-
-/* =====================================================
-   17. ANIMATIONS
-   ===================================================== */
-
-
-@keyframes spin {
-
-
-    from {
-
-
-        transform:
-        rotate(0deg);
-
-
-    }
-
-
-    to {
-
-
-        transform:
-        rotate(360deg);
-
-
-    }
-
-
-}
-
-
-
-
-@keyframes fade {
-
-
-    from {
-
-
-        opacity:
-        0;
-
-
-        transform:
-        translateY(10px);
-
-
-    }
-
-
-    to {
-
-
-        opacity:
-        1;
-
-
-        transform:
-        translateY(0);
-
-
-    }
-
-
-}
-
-/* =====================================================
-   18. STATISTICS SECTION
-   ===================================================== */
-
-
-.stats {
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    gap:20px;
-
-
-    margin:
-    35px 0;
-
-
-    flex-wrap:wrap;
-
-
-}
-
-
-
-
-.stat-card {
-
-
-    min-width:
-    160px;
-
-
-
-    padding:
-    25px;
-
-
-
-    text-align:center;
-
-
-
-    background:
-    rgba(255,255,255,.75);
-
-
-
-    border-radius:
-    var(--radius-md);
-
-
-
-    box-shadow:
-
-    0 15px 30px
-    rgba(0,0,0,.08);
-
-
-    backdrop-filter:
-
-    blur(15px);
-
-
-}
-
-
-
-.stat-card h2 {
-
-
-    margin:0;
-
-
-    font-size:
-    34px;
-
-
-
-    background:
-
-    linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-    );
-
-
-    -webkit-background-clip:text;
-
-
-    color:transparent;
-
-
-}
-
-
-
-.stat-card p {
-
-
-    margin-top:
-    10px;
-
-
-    color:
-    var(--muted);
-
-
-}
-
-
-
-/* =====================================================
-   19. INFORMATION CARDS
-   ===================================================== */
-
-
-.info-grid {
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(3,1fr);
-
-
-
-    gap:
-    20px;
-
-
-    margin-top:
-    35px;
-
-
-}
-
-
-
-.info-card {
-
-
-    padding:
-    25px;
-
-
-
-    background:
-    rgba(255,255,255,.8);
-
-
-
-    border-radius:
-    var(--radius-md);
-
-
-
-    box-shadow:
-
-    0 10px 25px
-    rgba(0,0,0,.08);
-
-
-}
-
-
-
-.info-card .icon {
-
-
-    font-size:
-    32px;
-
-
-}
-
-
-
-.info-card h3 {
-
-
-    margin:
-
-    15px 0 8px;
-
-
-}
-
-
-
-.info-card p {
-
-
-    color:
-    var(--muted);
-
-
-    line-height:
-    1.6;
-
-
-}
-
-
-
-/* =====================================================
-   20. ARCHITECTURE SECTION
-   ===================================================== */
-
-
-.architecture {
-
-
-    margin-top:
-    60px;
-
-
-    text-align:center;
-
-
-}
-
-
-
-.architecture h2 {
-
-
-    font-size:
-    30px;
-
-
-}
-
-
-
-.subtitle {
-
-
-    color:
-    var(--muted);
-
-
-}
-
 
 
 
@@ -1492,587 +698,132 @@ button:hover {
 
     display:flex;
 
-
     justify-content:center;
-
 
     align-items:center;
 
-
-    gap:
-    15px;
-
+    gap:15px;
 
     flex-wrap:wrap;
 
+}
 
-    margin-top:
-    35px;
 
+
+.flow div {
+
+
+    background:#f1f5f9;
+
+    padding:15px 20px;
+
+    border-radius:15px;
+
+    font-weight:600;
 
 }
 
 
 
-.flow-box {
-
-
-    width:
-    180px;
-
-
-
-    padding:
-    25px;
-
-
-
-    background:
-    white;
-
-
-
-    border-radius:
-    25px;
-
-
-
-    box-shadow:
-
-    0 15px 30px
-    rgba(0,0,0,.08);
-
-
-
-    transition:
-    .25s;
-
-
-}
-
-
-
-.flow-box:hover {
-
-
-    transform:
-
-    translateY(-5px);
-
-
-}
-
-
-
-.flow-box h3 {
-
-
-    margin:
-    10px 0;
-
-
-}
-
-
-
-.flow-box p {
-
-
-    color:
-    var(--muted);
-
-
-}
-
-
-
-.arrow {
-
-
-    font-size:
-    35px;
-
-
-    color:
-    var(--primary);
-
-
-}
-
-
-
-/* =====================================================
-   21. TIMELINE
-   ===================================================== */
-
-
-.timeline {
-
-
-    margin-top:
-    60px;
-
-
-}
-
-
-
-.timeline h2 {
-
-
-    text-align:center;
-
-
-    margin-bottom:
-    30px;
-
-
-}
-
-
-
-
-.timeline-item {
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    gap:
-    20px;
-
-
-
-    padding:
-    20px;
-
-
-
-    margin-bottom:
-    15px;
-
-
-
-    background:
-    white;
-
-
-
-    border-radius:
-    var(--radius-md);
-
-
-
-    box-shadow:
-
-    0 10px 25px
-    rgba(0,0,0,.08);
-
-
-}
-
-
-
-.timeline-item span {
-
-
-    width:
-    45px;
-
-
-    height:
-    45px;
-
-
-    display:flex;
-
-
-    align-items:center;
-
-
-    justify-content:center;
-
-
-    border-radius:
-    50%;
-
-
-    background:
-    var(--primary);
-
-
-
-    color:white;
-
-
-    font-weight:
-    700;
-
-
-}
-
-
-
-.timeline-item h3 {
-
-
-    margin:
-    0 0 5px;
-
-
-}
-
-
-
-.timeline-item p {
-
-
-    margin:
-    0;
-
-
-    color:
-    var(--muted);
-
-
-}
-
-
-
-
-/* =====================================================
-   22. FOOTER
-   ===================================================== */
 
 
 footer {
 
 
-    margin-top:
-    60px;
+    text-align:center;
+
+    margin-top:50px;
+
+    color:#64748b;
+
+}
 
 
-    padding:
-    30px;
 
+
+/* =========================
+ EMPTY STATE
+========================= */
+
+
+.empty-state {
 
 
     text-align:center;
 
-
-    color:
-    var(--muted);
-
-
-}
-
-
-
-.footer-title {
-
-
-    font-size:
-    22px;
-
-
-    font-weight:
-    700;
-
-
-    color:
-    var(--text);
-
-
-    margin-bottom:
-    10px;
-
-
-}
-
-
-
-/* =====================================================
-   23. THEME BUTTON
-   ===================================================== */
-
-
-.theme-btn {
-
-
-    position:
-    fixed;
-
-
-    top:
-    25px;
-
-
-    right:
-    25px;
-
-
-
-    width:
-    50px;
-
-
-    height:
-    50px;
-
-
-
-    border-radius:
-    50%;
-
-
-
     background:white;
 
+    padding:50px;
 
-
-    color:
-    var(--text);
-
-
-
-    font-size:
-    22px;
-
-
-
-    box-shadow:
-
-    0 10px 30px
-    rgba(0,0,0,.15);
-
-
-    z-index:
-    20;
-
+    border-radius:30px;
 
 }
 
 
 
+.empty-icon {
 
 
-/* =====================================================
-   24. DARK MODE
-   ===================================================== */
-
-
-.dark {
-
-
-    color:white;
-
+    font-size:60px;
 
 }
 
 
 
-.dark .background {
+.tip-card {
 
 
-    background:
+    display:inline-flex;
 
-    linear-gradient(
-        135deg,
-        #020617,
-        #111827
-    );
+    gap:10px;
 
+    margin:10px;
 
-}
+    background:#f8fafc;
 
+    padding:12px 20px;
 
-
-.dark .card,
-
-.dark .task-card,
-
-.dark .info-card,
-
-.dark .stat-card,
-
-.dark .flow-box,
-
-.dark .timeline-item {
-
-
-    background:
-    #111827;
-
-
-    color:white;
-
+    border-radius:999px;
 
 }
 
 
 
-.dark .hero p,
-
-.dark p,
-
-
-.dark span {
+/* =========================
+ RESPONSIVE
+========================= */
 
 
-    color:
-    #94a3b8;
+@media(max-width:800px){
 
 
-}
+.dashboard {
 
 
+    grid-template-columns:
 
-.dark input {
-
-
-    background:
-    #1e293b;
-
-
-    color:white;
-
+    1fr 1fr;
 
 }
 
 
 
-.dark input::placeholder {
+.input-row {
 
 
-    color:
-    #94a3b8;
-
+    grid-template-columns:1fr;
 
 }
 
 
 
-.dark .footer-title {
+.hero h1 {
 
 
-    color:white;
-
-
-}
-
-
-
-.dark .task-card {
-
-
-    border-color:
-    #374151;
-
+    font-size:34px;
 
 }
 
-
-
-
-
-/* =====================================================
-   25. RESPONSIVE
-   ===================================================== */
-
-
-@media(max-width:900px){
-
-
-    .info-grid {
-
-
-        grid-template-columns:
-        1fr;
-
-
-    }
-
-
-}
-
-
-
-
-
-@media(max-width:700px){
-
-
-
-    .hero h1 {
-
-
-        font-size:
-        36px;
-
-
-    }
-
-
-
-    .task-form {
-
-
-        flex-direction:
-        column;
-
-
-    }
-
-
-
-    .task-card {
-
-
-        flex-direction:
-        column;
-
-
-        align-items:
-        flex-start;
-
-
-    }
-
-
-
-    .task-actions {
-
-
-        width:
-        100%;
-
-
-    }
-
-
-
-    .flow {
-
-
-        flex-direction:
-        column;
-
-
-    }
-
-
-
-    .arrow {
-
-
-        transform:
-        rotate(90deg);
-
-
-    }
 
 
 }
@@ -2082,29 +833,22 @@ footer {
 @media(max-width:500px){
 
 
-    .card {
+.dashboard {
 
 
-        padding:
-        20px;
+    grid-template-columns:1fr;
 
-
-    }
+}
 
 
 
-    .theme-btn {
+.task-actions {
 
 
-        width:
-        45px;
+    flex-direction:column;
 
+}
 
-        height:
-        45px;
-
-
-    }
 
 
 }

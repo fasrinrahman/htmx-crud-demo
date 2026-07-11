@@ -13,632 +13,397 @@
     </title>
 
 
-    <!-- HTMX -->
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
 
-    <script src="https://unpkg.com/htmx.org@2.0.4">
+
+    <!-- HTMX -->
+    <script
+        src="https://unpkg.com/htmx.org@2.0.4">
     </script>
 
 
     <!-- Google Font -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
-    <!-- Styles -->
-
-    <link rel="stylesheet" href="/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
 
 </head>
 
 
-
 <body>
 
 
-    <button class="theme-btn">
+<div class="app">
 
-        🌙
 
-    </button>
+    <!-- Header -->
 
+    <header class="hero">
 
 
-    <div class="background">
+        <div class="logo">
 
+            ⚡
 
-        <main class="container">
+        </div>
 
 
-            <!-- Header -->
+        <h1>
 
+            HTMX Task Manager
 
-            <section class="hero">
+        </h1>
 
 
-                <div class="logo">
-                    ⚡
-                </div>
+        <p>
 
+            Modern Server-Driven UI built with
+            <strong>
+                HTMX + Express
+            </strong>
 
-                <h1>
-                    HTMX Task Manager
-                </h1>
+        </p>
 
 
-                <p>
-                    A modern CRUD application powered by
-                    <br>
-                    Server-Driven UI architecture
-                </p>
+        <div class="tech-tags">
 
 
+            <span>
+                HTMX
+            </span>
 
-                <div class="stats">
 
+            <span>
+                Node.js
+            </span>
 
-                    <div class="stat-card">
 
-                        <h2>
-                            0
-                        </h2>
+            <span>
+                Express
+            </span>
 
-                        <p>
-                            JavaScript Framework
-                        </p>
 
-                    </div>
+            <span>
+                Server UI
+            </span>
 
 
+        </div>
 
 
-                    <div class="stat-card">
+    </header>
 
-                        <h2>
-                            100%
-                        </h2>
 
-                        <p>
-                            HTML Responses
-                        </p>
 
-                    </div>
 
 
+    <!-- Create Task -->
 
+    <section class="create-section">
 
 
-                    <div class="stat-card">
+        <form
 
-                        <h2>
-                            ⚡
-                        </h2>
+            hx-post="/tasks"
 
-                        <p>
-                            Fast Updates
-                        </p>
+            hx-target="#task-container"
 
-                    </div>
+            hx-swap="innerHTML"
 
+            class="task-form"
 
+        >
 
-                </div>
 
+            <div class="input-group">
 
 
-                <div class="tech-stack">
+                <input
 
+                    type="text"
 
-                    <span>
-                        HTMX
-                    </span>
+                    name="title"
 
+                    placeholder="What needs to be done?"
 
-                    <span>
-                        Express
-                    </span>
+                    required
 
+                >
 
-                    <span>
-                        Node.js
-                    </span>
 
+            </div>
 
-                    <span>
-                        HTML
-                    </span>
 
 
-                </div>
 
 
-
-            </section>
-
-
-
-
-            <!-- Main Card -->
-
-
-            <section class="card">
-
-
-
-                <!-- Add Task -->
-
-
-                <form class="task-form" hx-post="/tasks" hx-target="#task-container" hx-swap="innerHTML">
-
-
-
-                    <input type="text" name="title" placeholder="✨ Enter a new task..." autocomplete="off" required>
-
-
-
-                    <button>
-
-                        + Add Task
-
-                    </button>
-
-
-                </form>
-
-
-
-
-
-
-                <!-- Search -->
-
-
-                <div class="search-box">
-
-
-                    <span>
-                        🔍
-                    </span>
-
-
-                    <input type="text" placeholder="Search tasks..." name="q" hx-get="/search"
-                        hx-trigger="keyup changed delay:300ms" hx-target="#task-container">
-
-
-                </div>
-
-
-
-
-
-                <!-- Loading -->
-
-
-                <div id="loading" class="htmx-indicator">
-
-
-                    <div class="loading-bar">
-
-                    </div>
-
-
-                    <span>
-                        Updating...
-                    </span>
-
-
-                </div>
-
-
-
-
-
-
-
-                <!-- Tasks -->
-
-
-                <div id="task-container" hx-get="/tasks" hx-trigger="load">
-
-
-                </div>
-
-
-
-
-
-            </section>
-
-
-
-
-
-
-            <!-- Explanation -->
-
-
-            <section class="info-grid">
-
-
-
-                <div class="info-card">
-
-
-                    <div class="icon">
-                        ⚡
-                    </div>
-
-
-                    <h3>
-                        No Framework
-                    </h3>
-
-
-                    <p>
-                        No React,
-                        Vue or Angular.
-                        Only HTML + HTMX.
-                    </p>
-
-
-                </div>
-
-
-
-
-                <div class="info-card">
-
-
-                    <div class="icon">
-                        🔄
-                    </div>
-
-
-                    <h3>
-                        Partial Updates
-                    </h3>
-
-
-                    <p>
-                        Only required HTML sections update.
-                    </p>
-
-
-                </div>
-
-
-
-
-
-                <div class="info-card">
-
-
-                    <div class="icon">
-                        🚀
-                    </div>
-
-
-                    <h3>
-                        Server Driven
-                    </h3>
-
-
-                    <p>
-                        Backend controls UI rendering.
-                    </p>
-
-
-                </div>
-
-
-
-
-            </section>
-
-
-            <section class="architecture">
-
-
-                <h2>
-                    How HTMX Works
-                </h2>
-
-
-                <p class="subtitle">
-
-                    Request flow without a frontend framework
-
-                </p>
-
-
-
-                <div class="flow">
-
-
-                    <div class="flow-box browser">
-
-                        🌐
-
-                        <h3>
-                            Browser
-                        </h3>
-
-                        <p>
-                            User clicks button
-                        </p>
-
-                    </div>
-
-
-
-
-                    <div class="arrow">
-
-                        →
-
-                    </div>
-
-
-
-
-                    <div class="flow-box htmx">
-
-                        ⚡
-
-                        <h3>
-                            HTMX
-                        </h3>
-
-                        <p>
-                            Sends HTTP request
-                        </p>
-
-                    </div>
-
-
-
-
-                    <div class="arrow">
-
-                        →
-
-                    </div>
-
-
-
-
-                    <div class="flow-box server">
-
-                        🖥️
-
-                        <h3>
-                            Express Server
-                        </h3>
-
-                        <p>
-                            Generates HTML
-                        </p>
-
-                    </div>
-
-
-
-
-                    <div class="arrow">
-
-                        →
-
-                    </div>
-
-
-
-
-                    <div class="flow-box response">
-
-                        📄
-
-                        <h3>
-                            HTML Fragment
-                        </h3>
-
-                        <p>
-                            Updates section only
-                        </p>
-
-                    </div>
-
-
-
-                </div>
-
-
-            </section>
-
-            <section class="timeline">
-
-
-                <h2>
-                    CRUD Lifecycle
-                </h2>
-
-
-
-                <div class="timeline-item">
-
-                    <span>
-                        1
-                    </span>
-
-                    <div>
-
-                        <h3>
-                            Create
-                        </h3>
-
-                        <p>
-                            POST request creates new task
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="timeline-item">
-
-                    <span>
-                        2
-                    </span>
-
-                    <div>
-
-                        <h3>
-                            Read
-                        </h3>
-
-                        <p>
-                            Server renders HTML list
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-
-
-                <div class="timeline-item">
-
-                    <span>
-                        3
-                    </span>
-
-                    <div>
-
-                        <h3>
-                            Update
-                        </h3>
-
-                        <p>
-                            Only selected task refreshes
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-
-
-
-                <div class="timeline-item">
-
-                    <span>
-                        4
-                    </span>
-
-                    <div>
-
-                        <h3>
-                            Delete
-                        </h3>
-
-                        <p>
-                            List updates without reload
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-
-            </section>
-
-
-            <footer>
-
-
-                <div class="footer-title">
-
-                    ⚡ HTMX Task Manager
-
-                </div>
-
-
-                <p>
-
-                    A demonstration of modern Server Driven UI
-
-                </p>
+            <div class="input-row">
 
 
                 <div>
 
+                    <label>
+                        Due Date
+                    </label>
 
-                    <span>
-                        HTMX
-                    </span>
 
-                    •
+                    <input
 
-                    <span>
-                        Express
-                    </span>
+                        type="datetime-local"
 
-                    •
+                        name="dueDate"
 
-                    <span>
-                        Node.js
-                    </span>
+                    >
+
+                </div>
+
+
+
+
+
+                <div>
+
+                    <label>
+                        Priority
+                    </label>
+
+
+                    <select name="priority">
+
+
+                        <option value="low">
+
+                            🟢 Low
+
+                        </option>
+
+
+
+                        <option value="medium" selected>
+
+                            🟡 Medium
+
+                        </option>
+
+
+
+                        <option value="high">
+
+                            🔴 High
+
+                        </option>
+
+
+                    </select>
 
 
                 </div>
 
 
-            </footer>
+            </div>
 
 
 
-        </main>
+
+
+            <button class="add-btn">
+
+
+                + Create Task
+
+
+            </button>
 
 
 
-    </div>
+        </form>
+
+
+    </section>
 
 
 
-    <script>
-
-
-        const button =
-            document.querySelector(".theme-btn");
-
-
-        button.onclick = () => {
-
-
-            document.body.classList.toggle("dark");
 
 
 
-            button.innerHTML =
-                document.body.classList.contains("dark")
-                    ?
-                    "☀️"
-                    :
-                    "🌙";
+    <!-- Search -->
 
 
-        };
+    <section class="search-section">
+
+
+        <input
+
+            type="search"
+
+            placeholder="🔍 Search tasks..."
+
+            name="q"
+
+
+            hx-get="/tasks/search"
+
+            hx-target="#task-container"
+
+            hx-trigger="keyup changed delay:400ms"
+
+
+        >
 
 
 
-    </script>
+    </section>
+
+
+
+
+
+
+
+    <!-- Tasks -->
+
+
+    <main
+
+        id="task-container"
+
+    >
+
+
+    </main>
+
+
+
+
+
+
+    <!-- HTMX Info -->
+
+
+    <section class="htmx-info">
+
+
+        <h2>
+
+            ⚡ How HTMX Works
+
+        </h2>
+
+
+        <div class="flow">
+
+
+            <div>
+
+                Browser
+
+            </div>
+
+
+            <span>
+                →
+            </span>
+
+
+            <div>
+
+                HTMX Request
+
+            </div>
+
+
+            <span>
+                →
+            </span>
+
+
+            <div>
+
+                Express
+
+            </div>
+
+
+            <span>
+                →
+            </span>
+
+
+            <div>
+
+                HTML Fragment
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+
+
+    <footer>
+
+
+        <p>
+
+            Built with ❤️ using HTMX + Express
+
+        </p>
+
+
+    </footer>
+
+
+
+</div>
+
+
+
+
+<script>
+
+
+// Load initial tasks
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+
+        htmx.ajax(
+
+            "GET",
+
+            "/tasks/search?q=",
+
+            {
+
+                target:"#task-container",
+
+                swap:"innerHTML"
+
+            }
+
+        );
+
+
+    }
+);
+
+
+
+</script>
+
 
 </body>
 

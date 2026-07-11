@@ -1,167 +1,387 @@
 const express = require("express");
+const path = require("path");
+
+const renderTasks = require("./views/tasks");
+const renderTaskItem = require("./views/task-item");
+const renderEditTask = require("./views/edit-task");
+const renderEmptyState = require("./views/empty-state");
+
 
 const app = express();
 
 const PORT = 3000;
 
 
+
 // Middleware
 
-app.use(express.urlencoded({
-    extended:true
-}));
+app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static("public"));
+app.use(express.json());
 
-
-// Import HTML generators
-
-const renderTasks = require("./views/tasks");
-const renderTaskItem = require("./views/task-item");
-const renderEditTask = require("./views/edit-task");
-const renderEmpty = require("./views/empty-state");
+app.use(
+    express.static(
+        path.join(__dirname, "public")
+    )
+);
 
 
 
-// Fake database
+// Temporary database
 
 let tasks = [
 
     {
-        id:1,
-        title:"Learn HTMX",
-        completed:false
+        id: 1,
+
+        title: "Learn HTMX",
+
+        priority: "high",
+
+        dueDate:
+            "2026-07-15T20:00",
+
+        createdAt:
+            new Date(),
+
+        completed: false
+
     },
 
-    {
-        id:2,
-        title:"Build CRUD Demo",
-        completed:false
-    },
 
     {
-        id:3,
-        title:"Prepare Presentation",
-        completed:false
+        id: 2,
+
+        title: "Build Task Manager",
+
+        priority: "medium",
+
+        dueDate:
+            "2026-07-20T18:30",
+
+        createdAt:
+            new Date(),
+
+        completed: false
+
     }
 
 ];
 
 
 
-// Home page
+// Generate ID
 
-app.get("/",(req,res)=>{
+function generateId(){
 
-    res.sendFile(
-        __dirname + "/public/index.html"
-    );
+    return Date.now();
+
+}
+
+
+
+// ============================
+// HOME PAGE
+// ============================
+
+app.get("/", (req,res)=>{
+
+
+    res.send(`
+
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+
+<title>
+HTMX Task Manager
+</title>
+
+
+<link
+
+rel="stylesheet"
+
+href="/style.css"
+
+/>
+
+
+<script
+
+src="https://unpkg.com/htmx.org@2.0.4">
+
+</script>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+
+⚡ HTMX Task Manager
+
+</h1>
+
+
+
+<form
+
+hx-post="/tasks"
+
+hx-target="#task-container"
+
+hx-swap="innerHTML"
+
+class="task-form"
+
+
+>
+
+
+<input
+
+type="text"
+
+name="title"
+
+placeholder="Create a new task..."
+
+required
+
+>
+
+
+
+<input
+
+type="datetime-local"
+
+name="dueDate"
+
+>
+
+
+
+<select name="priority">
+
+
+<option value="low">
+
+🟢 Low
+
+</option>
+
+
+<option value="medium" selected>
+
+🟡 Medium
+
+</option>
+
+
+<option value="high">
+
+🔴 High
+
+</option>
+
+
+</select>
+
+
+
+<button>
+
+Add Task
+
+</button>
+
+
+
+</form>
+
+
+
+
+<div
+
+id="task-container"
+
+>
+
+
+${
+
+tasks.length
+
+?
+
+renderTasks(tasks)
+
+:
+
+renderEmptyState()
+
+}
+
+
+</div>
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>
+
+`);
 
 });
 
 
 
 
-// GET TASKS
 
-app.get("/tasks",(req,res)=>{
-
-    const query=req.query.search || "";
-
-
-    let filtered =
-        tasks.filter(task =>
-            task.title
-            .toLowerCase()
-            .includes(query.toLowerCase())
-        );
-
-
-    if(filtered.length===0){
-
-        return res.send(renderEmpty());
-
-    }
-
-
-    res.send(
-        renderTasks(filtered)
-    );
-
-});
-
-
-
-
+// ============================
 // CREATE TASK
+// ============================
 
 app.post("/tasks",(req,res)=>{
 
 
-    const task={
-
-        id:Date.now(),
-
-        title:req.body.title,
-
-        completed:false
-    };
+const task={
 
 
-    tasks.push(task);
+id:
+generateId(),
 
 
-    res.send(
-        renderTasks(tasks)
-    );
+title:
+req.body.title,
+
+
+priority:
+req.body.priority || "medium",
+
+
+dueDate:
+req.body.dueDate || null,
+
+
+createdAt:
+new Date(),
+
+
+completed:false
+
+
+};
+
+
+
+tasks.unshift(task);
+
+
+
+res.send(
+    renderTasks(tasks)
+);
+
 
 });
 
 
 
 
-// DELETE TASK
 
-app.delete("/tasks/:id",(req,res)=>{
+// ============================
+// SEARCH
+// ============================
 
-
-    tasks =
-    tasks.filter(
-        task =>
-        task.id != req.params.id
-    );
+app.get("/tasks/search",(req,res)=>{
 
 
-    if(tasks.length===0){
-
-        return res.send(renderEmpty());
-
-    }
+const keyword =
+(req.query.q || "")
+.toLowerCase();
 
 
-    res.send(
-        renderTasks(tasks)
-    );
+
+const filtered =
+tasks.filter(task =>
+
+task.title
+.toLowerCase()
+.includes(keyword)
+
+);
+
+
+
+res.send(
+
+filtered.length
+
+?
+
+renderTasks(filtered)
+
+:
+
+renderEmptyState()
+
+);
+
 
 });
 
 
 
 
+
+// ============================
 // EDIT FORM
+// ============================
 
 app.get("/tasks/:id/edit",(req,res)=>{
 
 
-    const task =
-    tasks.find(
-        t=>t.id==req.params.id
-    );
+const task =
+tasks.find(
+
+t =>
+t.id ==
+req.params.id
+
+);
 
 
-    res.send(
-        renderEditTask(task)
-    );
+
+if(!task)
+return res.sendStatus(404);
+
+
+
+res.send(
+
+renderEditTask(task)
+
+);
 
 
 });
@@ -169,24 +389,48 @@ app.get("/tasks/:id/edit",(req,res)=>{
 
 
 
+
+// ============================
 // UPDATE TASK
+// ============================
 
-app.post("/tasks/:id",(req,res)=>{
-
-
-    const task =
-    tasks.find(
-        t=>t.id==req.params.id
-    );
+app.put("/tasks/:id",(req,res)=>{
 
 
-    task.title=req.body.title;
+const task =
+tasks.find(
+
+t =>
+t.id ==
+req.params.id
+
+);
 
 
 
-    res.send(
-        renderTaskItem(task)
-    );
+if(!task)
+return res.sendStatus(404);
+
+
+
+task.title =
+req.body.title;
+
+
+task.priority =
+req.body.priority;
+
+
+task.dueDate =
+req.body.dueDate;
+
+
+
+res.send(
+
+renderTaskItem(task)
+
+);
 
 
 });
@@ -194,33 +438,114 @@ app.post("/tasks/:id",(req,res)=>{
 
 
 
-// SEARCH
 
-app.get("/search",(req,res)=>{
+// ============================
+// SINGLE TASK VIEW
+// ============================
 
-    const query=req.query.q || "";
-
-
-    const filtered =
-    tasks.filter(
-        t =>
-        t.title
-        .toLowerCase()
-        .includes(query.toLowerCase())
-    );
+app.get("/tasks/:id",(req,res)=>{
 
 
-    if(filtered.length===0)
-    {
-        return res.send(
-            renderEmpty()
-        );
-    }
+const task =
+tasks.find(
+
+t =>
+t.id ==
+req.params.id
+
+);
 
 
-    res.send(
-        renderTasks(filtered)
-    );
+
+if(!task)
+return res.sendStatus(404);
+
+
+
+res.send(
+
+renderTaskItem(task)
+
+);
+
+
+});
+
+
+
+
+
+// ============================
+// COMPLETE / UNDO
+// ============================
+
+app.post("/tasks/:id/complete",(req,res)=>{
+
+
+const task =
+tasks.find(
+
+t =>
+t.id ==
+req.params.id
+
+);
+
+
+
+if(task){
+
+task.completed =
+!task.completed;
+
+}
+
+
+
+res.send(
+
+renderTasks(tasks)
+
+);
+
+
+});
+
+
+
+
+
+// ============================
+// DELETE TASK
+// ============================
+
+app.delete("/tasks/:id",(req,res)=>{
+
+
+tasks =
+
+tasks.filter(
+
+task =>
+task.id != req.params.id
+
+);
+
+
+
+res.send(
+
+tasks.length
+
+?
+
+renderTasks(tasks)
+
+:
+
+renderEmptyState()
+
+);
 
 
 });
@@ -231,8 +556,12 @@ app.get("/search",(req,res)=>{
 
 app.listen(PORT,()=>{
 
-    console.log(
-        `🚀 HTMX app running at http://localhost:${PORT}`
-    );
+
+console.log(
+
+`HTMX Task Manager running on http://localhost:${PORT}`
+
+);
+
 
 });
