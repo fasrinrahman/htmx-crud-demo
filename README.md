@@ -43,26 +43,26 @@ Overdue
 
 ---
 
-# 🛠 Tech Stack
+## 🛠 Tech Stack
 
-## Backend
+### Backend
 
 - Node.js
 - Express.js
 
-## Frontend
+### Frontend
 
 - HTML5
 - CSS3
 - HTMX
 
-## Architecture
+### Architecture
 
 Server Driven UI
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 htmx-task-manager
 
@@ -84,7 +84,7 @@ htmx-task-manager
 
 ---
 
-# ⚡ How HTMX Works
+## ⚡ How HTMX Works
 
 Traditional SPA approach:
 
@@ -109,14 +109,13 @@ Generate HTML Fragment
 Replace Required Section
 
 The browser does not reload the complete page.
-
 Only the required component changes.
 
 ---
 
-# 🔥 Example Flow
+## 🔥 Example Flow
 
-## Creating a Task
+### Creating a Task
 
 Click Add Task
 ↓
@@ -130,64 +129,74 @@ HTMX updates task list
 
 ---
 
-# ▶️ Running The Project
+## ▶️ Running The Project
 
 Install dependencies:
 
 ````bash
 npm install
+````
 Start development server:
+````bash
 npm start
+````
 Open:
-
+````bash
 http://localhost:3000
+````
 
-🎨 UI Features
-Modern dashboard
-Glass style cards
-Responsive layout
-Priority badges
-Due date indicators
-HTMX architecture panel
-Clean presentation design
-📚 Learning Goals
+
+## 🎨 UI Features
+- Modern dashboard
+- Glass style cards
+- Responsive layout
+- Priority badges
+- Due date indicators
+- HTMX architecture panel
+- Clean presentation design
+
+
+## 📚 Learning Goals
 
 This project demonstrates:
 
-Backend
-Express routing
-Server-side rendering
-Data handling
-HTML generation
-HTMX
-hx-get
-hx-post
-hx-put
-hx-delete
-hx-target
-hx-swap
-Partial page updates
-🔮 Future Improvements
+- Backend
+- Express routing
+- Server-side rendering
+- Data handling
+- HTML generation
+- HTMX
+- hx-get
+- hx-post
+- hx-put
+- hx-delete
+- hx-target
+- hx-swap
+- Partial page updates
+
+
+## 🔮 Future Improvements
 
 Possible production upgrades:
 
-PostgreSQL database
-User authentication
-Multiple users
-Real-time notifications
-Drag and drop tasks
-Calendar view
-REST API layer
-👨‍💻 Author
+- PostgreSQL database
+- User authentication
+- Multiple users
+- Real-time notifications
+- Drag and drop tasks
+- Calendar view
+- REST API layer
+
+
+## 👨‍💻 Author
 
 Mohamed Fasrin Rahman
 
-Built with:
+# Built with:
 
-⚡ HTMX
-
-Express.js
-Node.js
+- ⚡ HTMX
+- Express.js
+- Node.js
 
 ---
 
@@ -195,7 +204,7 @@ Node.js
 
 Current repository:
 
-```text
+``` text
 htmx-task-manager
 │
 ├── package.json                 ✅
